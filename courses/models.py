@@ -24,9 +24,8 @@ class Course(models.Model):
     overview = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
 
-
-class Meta:
-    ordering = ('-created')
+    class Meta:
+        ordering = ('-created',)
 
     def __str__(self):
         return self.title
@@ -39,7 +38,7 @@ class Module(models.Model):
     order = OrderField(blank=True, for_fields=['course'])
 
     class Meta:
-        ordering =['order']
+        ordering = ['order']
 
     def __str__(self):
         return '{}.{}'.format(self.order, self.title)
@@ -54,14 +53,14 @@ class Content(models.Model):
     order = OrderField(blank=True, for_fields=['module'])
 
     class Meta:
-        ordering =['order']
+        ordering = ['order']
 
 
 class ItemBase(models.Model):
     owner = models.ForeignKey(User, related_name='%(class)s_related', on_delete=models.CASCADE)
     title = models.CharField(max_length=250)
     created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True
@@ -84,6 +83,3 @@ class Image(ItemBase):
 
 class Video(ItemBase):
     url = models.URLField()
-
-
-

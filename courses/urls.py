@@ -6,7 +6,7 @@ urlpatterns = [path('mine/', views.ManagerCourseListView.as_view(), name='manage
                path('<pk>/edit/', views.CourseUpdateView.as_view(), name='course_edit'),
                path('<pk>/delete/', views.CourseDeleteView.as_view(), name='course_delete'),
                path('<pk>/module/', views.CourseModuleUpdateView.as_view(), name='course_module_update'),
-               path('module/<int:module_id>/content/<model_name>/create', views.ContentCreateUpdateView.as_view(),
+               path('module/<int:module_id>/content/<model_name>/create/', views.ContentCreateUpdateView.as_view(),
                     name='module_content_create'),
                path('module/<int:module_id>/content/<model_name>/<id>/', views.ContentCreateUpdateView.as_view(),
                     name='module_content_update'), ]
