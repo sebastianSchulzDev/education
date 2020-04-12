@@ -10,4 +10,5 @@ urlpatterns = [path('mine/', views.ManagerCourseListView.as_view(), name='manage
                     name='module_content_create'),
                path('module/<int:module_id>/content/<model_name>/<id>/', views.ContentCreateUpdateView.as_view(),
                     name='module_content_update'),
-               path('content/<int:id>/delete', views.ContentDeleteView.as_view(), name='module_content_delete')]
+               path('content/<int:id>/delete', views.ContentDeleteView.as_view(), name='module_content_delete'),
+               path('module/<int:module_id>/', views.ModuleContentListView.as_view(), name='module_content_list'),]
