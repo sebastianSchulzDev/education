@@ -11,9 +11,9 @@
     <a href="/" class="logo">Education</a>
     <ul class="menu">
         {% if request.user.is_authenticated %}
-        <li><a href="{% url 'logout' %}">Wyloguj</a></li>
+            <li><a href="{% url 'logout' %}">Wyloguj</a></li>
         {% else %}
-        <li><a href="{% url 'login' %}">Zaloguj</a></li>
+            <li><a href="{% url 'login' %}">Zaloguj</a></li>
         {% endif %}
     </ul>
 </div>
@@ -22,6 +22,7 @@
     {% endblock %}
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script>
     $(document).ready(function () {
         {% block domready %}
